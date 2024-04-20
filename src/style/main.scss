@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+	background: #fafafa;
+
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+}
+
+main {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	h1 {
+		color: #000;
+		text-transform: uppercase;
+		font-weight: 700;
+
+		@media (max-width: 560px) {
+			font-size: 24px;
+		}
+
+		@media (max-width: 410px) {
+			font-size: 22px;
+		}
+	}
+}
+
+.main__update-text {
+	margin-top: 15px;
+	text-align: center;
+
+	font-size: 16px;
+	color: rgba($color: #131313, $alpha: 0.8);
+
+	&.small {
+		margin-top: 0;
+		font-size: 14px;
+		color: rgba($color: #131313, $alpha: 0.6);
+	}
+}
+
+.main__rate-link {
+	margin-top: 15px;
+
+	color: #131313;
+	transition: color 0.25s ease;
+
+	&:hover {
+		color: #e41e6b;
+		transition: color 0.25s ease;
+	}
+}
+
+.converter {
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+
+	@media (max-width: 800px) {
+		flex-direction: column;
+	}
+
+	.currency-block {
+		text-align: left;
+		position: relative;
+
+		&__title {
+			font-size: 18px;
+			font-weight: 500;
+			color: #131313;
+		}
+
+		&__input {
+			width: 93%;
+			padding: 1rem 0.75rem 2.75rem;
+			font-size: 24px;
+			font-weight: 700;
+
+			border: 1px solid #131313;
+			outline: none;
+
+			&:focus {
+				border: 1px solid #e41e6b;
+			}
+		}
+
+		&__label {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+		}
+
+		.currency-panel {
+			position: relative;
+			display: flex;
+			padding: 0;
+			margin-top: 5px;
+
+			&__item {
+				min-width: 60px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				list-style: none;
+				padding: 10px 15px;
+				background: transparent;
+				border: 1px solid #131313;
+				color: #131313;
+				cursor: pointer;
+				transition: background-color 0.25s ease;
+
+				&:nth-child(n + 1):nth-child(-n + 3) {
+					border-right: none;
+				}
+
+				.arrow-down {
+					fill: #131313;
+				}
+
+				&.active {
+					background: #e41e6b;
+					color: #fff;
+				}
+
+				&:hover {
+					color: #fff;
+					background: #e41e6b;
+					transition: background-color 0.25s ease;
+
+					.arrow-down {
+						fill: #fff;
+					}
+				}
+			}
+		}
+
+		.currency-list {
+			position: absolute;
+			top: 50px;
+			left: 0;
+
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+
+			width: 100%;
+			height: 235px;
+			padding: 0;
+			border: 1px solid #131313;
+
+			&.hide {
+				display: none;
+			}
+
+			&__item {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				min-width: 60px;
+				list-style: none;
+
+				padding: 10px 15px;
+				background: #fafafa;
+				border-right: 1px solid #131313;
+				z-index: 100;
+				transition: background-color 0.25s, color 0.25s ease;
+				cursor: pointer;
+
+				&:nth-child(n + 19):nth-child(-n + 24) {
+					border-right: none;
+				}
+
+				&.active {
+					color: #fff;
+					background: #e41e6b;
+				}
+
+				&:hover {
+					color: #fff;
+					background: #e41e6b;
+					transition: background-color 0.25s, color 0.25s ease;
+				}
+			}
+		}
+	}
+}
+
+/* Скрытие кнопок (плюс и минус) в input type="number" */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none; /* Убирает стандартный вид кнопок */
+	margin: 0; /* Убирает отступы, чтобы избежать лишнего пространства */
+}
+
+input[type='number'] {
+	-moz-appearance: textfield; /* Убирает кнопки для Firefox */
+}
