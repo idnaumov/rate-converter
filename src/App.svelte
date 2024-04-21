@@ -14,10 +14,10 @@
     if (type === 'me') {
       activeIndexMe = index;
       await getCurrenciesData();
-      changeSum(1);
+      changeSum(2);
     } else {
       activeIndexGet = index;
-      changeSum(2);
+      changeSum(1);
     }
   }
 
@@ -47,7 +47,7 @@
         sumOnMe = sumToGet / exchangeRate;
         sumOnMe = parseFloat(sumOnMe.toFixed(2))
     }
-}
+  }
 
   function formatUnixTime(unix) {
     // Преобразуем UNIX в миллисекунды
